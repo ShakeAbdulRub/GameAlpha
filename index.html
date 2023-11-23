@@ -32,7 +32,8 @@
       p {
          margin: 10px 0;
          font-size: 1rem;
-         color: #555;
+         color: black;
+          font-weight: bold;
       }
 
       /* Home Page Styles */
@@ -67,8 +68,17 @@
          flex-wrap: wrap;
          gap: 10px;
       }
-     
-      
+      #imageContainer {
+            width: 200px;
+            height: 100px;
+            
+            overflow: hidden;
+        }
+       #imageContainer img {
+             width:100%;
+             height:100%;
+            object-fit: contain;
+        }
 
       label {
          padding: 10px;
@@ -111,6 +121,7 @@
          flex-wrap: wrap;
          gap: 10px;
          margin-top: 20px;
+        
       }
 
       button {
@@ -147,6 +158,7 @@
 
       button {
          background-color: #2c3e50;
+        
       }
 
       button:hover {
@@ -154,6 +166,29 @@
       }
 
       /* Responsive Styles */
+      @media (min-width: 601px) {
+       #objectbutton{
+       font-size: 20px;
+            margin: 10px;
+            padding: 15px 50px;
+             font-family: "Lucida Console", "Courier New", monospace;
+       }
+       
+       
+      #objects-container {
+         justify-content: center;
+            align-items: center;
+            
+            margin: 0;
+        
+      }
+      #buttonContainer
+      {
+        text-align: center;
+      }
+      
+      
+      }
       @media (max-width: 600px) {
          .dropdown {
             width: 80%;
@@ -167,6 +202,11 @@
          button {
             width: 80%;
          }
+          #objectbutton{
+          font-size: 20px;
+        font-family: "Lucida Console", "Courier New", monospace;
+       }
+       
 
          #options {
             padding: 10px;
@@ -222,7 +262,11 @@
 
       // Create the content dynamically and append it to the contentContainer
       function homePage(){
+        inputStr ="";
+        inputType="";
       console.log("Entering homePage function");
+      sp="";
+      playAudio(sp);
          var contentContainer = document.getElementById('contentContainer');
          contentContainer.innerHTML = `
         <h1 style="font-family: Comic Sans MS, cursive;"> Game Alpha</h1>
@@ -248,6 +292,19 @@
 </div>
                
                <button onclick="startGame()"> StartGame </button>
+               <p>Note:
+               <br>1. Increase your device volume<br>
+               2. After starting game Click on letters dictated 
+               <br>
+               3. If you Click on 3 wrong letters game will end
+               </P>
+               <footer>
+<br><br><br>
+        &#169; Developed by Shake Abdul Rub
+
+
+</footer>
+
          `;
         
     
@@ -346,14 +403,13 @@
        // inputType="";
         crtans ="";
         n=0;
+       
         getOptions();
       var contentContainer = document.getElementById('contentContainer');
          contentContainer.innerHTML = `
          <div id="gamediv">
          
          <p id="timer">Time: 1:20</p>
-         
-         
          <p id="score">Score: 0</p>
           <p id="wrongselect">wrongselect: 0</p>
     <div id="objects-container"></div>
@@ -363,9 +419,11 @@
     </audio>
     
     
-    <button id="replayButton" onclick="replayAudio()" >Replay Voice</button>
     
     
+    <div id="buttonContainer" >
+    <button id="replayButton" onclick="replayAudio()">Replay Voice</button>
+</div>
     
     
     
@@ -383,10 +441,18 @@
 
         // Function to play audio
         function playAudio(text) {
-            const audio = new SpeechSynthesisUtterance();
-            audio.text = text;
-            window.speechSynthesis.speak(audio);
-        }
+const audio = new SpeechSynthesisUtterance();
+    audio.text = text;
+
+    // Find the Indian English voice
+    const indianEnglishVoice = window.speechSynthesis.getVoices().find(voice => {
+        return voice.lang === 'en-IN'; // 'en-IN' is the language code for Indian English
+    });
+    console.log(indianEnglishVoice)
+   
+        audio.voice = indianEnglishVoice;
+        window.speechSynthesis.speak(audio);
+            }
 
         // Function to replay audio
         function replayAudio() {
@@ -410,10 +476,10 @@ function setBigArray()
    bigArray = selectRandomWords(inputStr, Number(inputType));
    console.log(bigArray);
 }
-function generateWords(letter, type) {
+function generateWords(letter, type,k) {
   const words = [];
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i <k; i++) {
     // Generate a random case for the letter
     const r = Math.floor(Math.random() * 2);
 
@@ -454,20 +520,21 @@ function selectRandomWords(series, type) {
   const selectedWords = [];
 
   for (const letter of series) {
-    const generatedWords = generateWords(letter, type);
+    const generatedWords = generateWords(letter, type,Math.ceil(80/series.length));
 
     // Shuffle the array to randomize the words
     generatedWords.sort(() => Math.random() - 0.5);
 
     // Select the first 5 words from the shuffled array
-    selectedWords.push(...generatedWords.slice(0, Math.ceil(50/series.length)));
+    selectedWords.push(...generatedWords.slice(0, Math.ceil(80/series.length)));
+    console.log(Math.ceil(80/series.length));
   }
 
   // Shuffle the selected words array
   selectedWords.sort(() => Math.random() - 0.5);
 
   // Return the first 10 words from the shuffled selected words array
-  return selectedWords.slice(0, 50);
+  return selectedWords.slice(0, 80);
 }
 
 function setObjectNames()
@@ -483,7 +550,7 @@ function showObjects() {
     const objectsContainer = document.getElementById('objects-container');
     objectsContainer.innerHTML = '';
 
-    if (wrongselect === 3 || new Date() - startTime > 80000|| n>49) {
+    if (wrongselect === 3 || new Date() - startTime > 80000|| n>79) {
         endGame();
         console.log("Exit from the showobj");
         return; // Exit the function early
@@ -492,6 +559,7 @@ function showObjects() {
     for (const name of objectNames) {
         const button = document.createElement('button');
         button.textContent = name;
+        button.id = "objectbutton"
         button.addEventListener('click', () => checkAnswer(name));
         objectsContainer.appendChild(button);
     }
@@ -522,7 +590,7 @@ function showObjects() {
             document.getElementById('score').textContent = `Score: ${score}`;
             document.getElementById('wrongselect').textContent = `wrongselect: ${wrongselect}`;
 
-            if (wrongselect == 3 || new Date() - startTime > 80000|| n>49) {
+            if (wrongselect == 3 || new Date() - startTime > 80000|| n>79) {
               console.log("hello")
                 endGame();
             } else {
@@ -563,18 +631,65 @@ function showObjects() {
             //alert(`Game Over! Your score is ${score}`);
             // You can add more logic here, like displaying the final score on the screen
             
-            var contentContainer = document.getElementById('contentContainer');
-           
+          var contentContainer = document.getElementById('contentContainer');
+         
          contentContainer.innerHTML = `
          <div id="gamediv">
          <h1 style="font-family: Comic Sans MS, cursive;">Game Over<h1>
-         <br><br>
+         
+         <div id="imageContainer">
+       
+    </div>
+         
+         
+         
          <p id="scored">Score: 0</p>
          <button onclick="startGame()"> New Game </button>
           <button onclick="homePage()"> Home </button>
           </div>
          `;
+         var imageContainer = document.getElementById('imageContainer');
+         if(score>38){
+         imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1Kg6-iMc2_BKwoA3WfDYeu7mnRKrKNpg3">`;
+         }
+        
+         else if(score>29)
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=13tK6JIjzfIgxvgrO370bJ96dZceMuiVD">`;
+           
+         }
+         else if(score>22)
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1CMiGEBZjEOytIcmUBwa7nLIGOcSmnCnK">`;
+         }
+         else if(score>16)
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1IHb-ljIdrsnTw_znMXhz3WXkuzcH-Kze">`;
+           
+         }
+         else if(score>11)
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=18dzaV68MQ2qwAkT0icQczbAq6UzlOPzM">`;
+           
+         }
+         else if(score>5)
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1gIyCbCBzXvIHYV15AhGcYnzWAeI15gRc">`;
+         }
+       
+          else if(score>0)
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1rTgy4pCXeK4TnLDM5N3SlpMpu_-VVg61">`;
+           
+         }
+        
+         else 
+         {
+           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1R7E72JBuLegoqUHFFeDupLXI4hGi5NcU">`;
+           
+         }
           document.getElementById('scored').textContent = `Score: ${score}`;
+          
          
         }
 
