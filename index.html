@@ -46,9 +46,19 @@
          display: flex;
          justify-content: space-around;
          margin: 1rem 0;
+         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       margin: 1rem 0; /* Add margin between the labels */
       }
+      #Type label {
+    margin-bottom: 0.5rem; /* Adjust the margin between the labels */
+}
 
       .dropdown {
+          margin: 10px auto; /* Center the button horizontally */
+         text-align: center; 
          padding: 10px;
          font-size: 1.2rem;
          background-color: #2980b9;
@@ -292,14 +302,17 @@
 </div>
                
                <button onclick="startGame()"> StartGame </button>
-               <p>Note:
-               <br>1. Increase your device volume<br>
-               2. After starting game Click on letters dictated 
-               <br>
-               3. If you Click on 3 wrong letters game will end
+               <p><b>
+                <ol>
+                Note:
+  <li> Increase your device volume</li>
+  <li> After starting game Click on letters dictated</li>
+  <li> If you Click on 3 wrong letters game will end</li>
+</ol></b>
                </P>
+              
                <footer>
-<br><br><br>
+<br>
         &#169; Developed by Shake Abdul Rub
 
 
@@ -446,7 +459,7 @@ const audio = new SpeechSynthesisUtterance();
 
     // Find the Indian English voice
     const indianEnglishVoice = window.speechSynthesis.getVoices().find(voice => {
-        return voice.lang === 'en-IN'; // 'en-IN' is the language code for Indian English
+        return voice.name === "Microsoft Ravi - English (India)"; // 'en-IN' is the language code for Indian English
     });
     console.log(indianEnglishVoice)
    
@@ -624,7 +637,20 @@ function showObjects() {
            intervalId= setInterval(update, 1000);
             
         }
+        function getRandomNumber(n) {
+   			 // Ensure that n is a valid number
+    			 if (typeof n !== 'number' || n <= 0) {
+       				 console.error('Invalid range');
+       				 return null;
+   					 }
 
+   				 // Generate a random number between 0 (inclusive) and n 							(exclusive)
+   			 const randomNumber = Math.floor(Math.random() * n);
+
+    		// Return the result
+    		return randomNumber;
+		}
+			
         // Function to end the game
         function endGame() {
             clearInterval(intervalId);
@@ -635,7 +661,7 @@ function showObjects() {
          
          contentContainer.innerHTML = `
          <div id="gamediv">
-         <h1 style="font-family: Comic Sans MS, cursive;">Game Over<h1>
+         <h1 style="font-family: Comic Sans MS, cursive;"><b>Game Over</b><h1>
          
          <div id="imageContainer">
        
@@ -647,46 +673,44 @@ function showObjects() {
          <button onclick="startGame()"> New Game </button>
           <button onclick="homePage()"> Home </button>
           </div>
+       
+        <footer>
+<br><br><br>
+        &#169; Developed by Shake Abdul Rub
+
+
+</footer>
          `;
+         const imgarr1=['cryingemoji.gif','crying-emoji-3.gif','cryingnobitha.gif','cryingtom.gif'];
+         const imgarr2=['minidoranice.gif', 'cockrojesenjoyingatbeach.gif', 'wowgreatjob.gif', 
+ 'kidvskat.gif', 'dancingjaggu.gif',  'goodjobbychotb.gif', 
+ 'welldone.gif', 'singingchinchan.gif', 'kidvskatclapping.gif',
+  'duckangjryycongtats.gif', 'doremoncongrats.gif', 
+   'itsallgood.gif', 'greatjob.gif', 
+ 'superstar.gif', 'sinchandancing.gif', 'minidoragogo.gif', 'jerryandduckdancing.gif', 
+ 'amazingchinchan.gif', 'tomcongratsjerry.gif', 'awesomebychotabeem.gif'];
+         const imgarr3=['chotabeemwithtropy.gif','yourethebesttropy.gif'];
          var imageContainer = document.getElementById('imageContainer');
-         if(score>38){
-         imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1Kg6-iMc2_BKwoA3WfDYeu7mnRKrKNpg3">`;
+         if(score>45){
+         var imid= getRandomNumber(2)
+         var hino=imgrr3[imid]
+           imageContainer.innerHTML =`<img src=${hino}>`;
+         
          }
         
-         else if(score>29)
+         else if(score>6)
          {
-           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=13tK6JIjzfIgxvgrO370bJ96dZceMuiVD">`;
-           
-         }
-         else if(score>22)
-         {
-           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1CMiGEBZjEOytIcmUBwa7nLIGOcSmnCnK">`;
-         }
-         else if(score>16)
-         {
-           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1IHb-ljIdrsnTw_znMXhz3WXkuzcH-Kze">`;
-           
-         }
-         else if(score>11)
-         {
-           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=18dzaV68MQ2qwAkT0icQczbAq6UzlOPzM">`;
-           
-         }
-         else if(score>5)
-         {
-           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1gIyCbCBzXvIHYV15AhGcYnzWAeI15gRc">`;
-         }
-       
-          else if(score>0)
-         {
-           imageContainer.innerHTML =`<img src="https://drive.google.com/uc?export=view&id=1rTgy4pCXeK4TnLDM5N3SlpMpu_-VVg61">`;
+           var imid= getRandomNumber(20)
+         var hino=imgrr2[imid]
+           imageContainer.innerHTML =`<img src=${hino}>`;
            
          }
         
          else 
          {
-           imageContainer.innerHTML =`<img src="./superstar.gif">`;
-           
+         var imid= getRandomNumber(4)
+         var hino=imgrr1[imid]
+           imageContainer.innerHTML =`<img src=${hino}>`;
          }
           document.getElementById('scored').textContent = `Score: ${score}`;
           
