@@ -693,7 +693,7 @@ function showObjects() {
          var imageContainer = document.getElementById('imageContainer');
          if(score>45){
          var imid= getRandomNumber(2)
-         var hino=imgrr3[imid]
+         var hino="./"+imgarr3[imid];
            imageContainer.innerHTML =`<img src=${hino}>`;
          
          }
@@ -701,7 +701,7 @@ function showObjects() {
          else if(score>6)
          {
            var imid= getRandomNumber(20)
-         var hino=imgrr2[imid]
+         var hino="./"+imgarr2[imid];
            imageContainer.innerHTML =`<img src=${hino}>`;
            
          }
@@ -709,7 +709,7 @@ function showObjects() {
          else 
          {
          var imid= getRandomNumber(4)
-         var hino=imgrr1[imid]
+         var hino="./"+imgarr1[imid];
            imageContainer.innerHTML =`<img src=${hino}>`;
          }
           document.getElementById('scored').textContent = `Score: ${score}`;
