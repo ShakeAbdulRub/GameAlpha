@@ -97,8 +97,8 @@
             align-items: center;
         }
         #logoContainer img {
-             width:50%;
-             height:50%;
+             width:50px;
+             height:50px;
             object-fit: contain;
         }
 
@@ -225,7 +225,7 @@
             width: 80%;
          }
           #logoContainer{
-           width: 80%;
+           width: 100%;
           }
          .row {
             flex-direction: row;
@@ -271,6 +271,12 @@
    </style>
 </head>
 <body>
+    <div id="logoContainer">
+         <img src="https://github.com/ShakeAbdulRub/GameAlpha/blob/main/gamealphalogo2.jpeg?raw=true"/>
+         Game Alpha
+         
+    </div>
+    
    <div id="contentContainer" class="page"></div>
    
    <script>
@@ -302,12 +308,7 @@
       playAudio(sp);
          var contentContainer = document.getElementById('contentContainer');
          contentContainer.innerHTML = `
-          <div id="logoContainer">
-         <img src="https://github.com/ShakeAbdulRub/GameAlpha/blob/main/gamealphalogo2.jpeg?raw=true"/>
-         Game Alpha
-         
-    </div>
-    
+          
         
          <div id="Type">
          <label for="checkboxCap">
