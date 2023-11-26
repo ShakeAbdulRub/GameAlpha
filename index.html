@@ -57,7 +57,7 @@
 }
 
       .dropdown {
-          margin: 10px auto; /* Center the button horizontally */
+          margin: 10px auto; 
          text-align: center; 
          padding: 10px;
          font-size: 1.2rem;
@@ -84,10 +84,29 @@
             
             overflow: hidden;
         }
+       #logoContainer{
+              margin: 10px auto; 
+         text-align: center; 
+            font-size: 2rem;
+            background-color: black;
+            overflow: hidden;
+            display: flex;
+            color: #fff;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #logoContainer img {
+             width:70%;
+             height:70%;
+            object-fit: contain;
+        }
+
        #imageContainer img {
              width:100%;
              height:100%;
             object-fit: contain;
+            
         }
 
       label {
@@ -184,7 +203,9 @@
              font-family: "Lucida Console", "Courier New", monospace;
        }
        
-       
+        #logoContainer{
+           width: 80%;
+          }
       #objects-container {
          justify-content: center;
             align-items: center;
@@ -203,7 +224,9 @@
          .dropdown {
             width: 80%;
          }
-
+          #logoContainer{
+           width: 80%;
+          }
          .row {
             flex-direction: row;
          }
@@ -279,7 +302,13 @@
       playAudio(sp);
          var contentContainer = document.getElementById('contentContainer');
          contentContainer.innerHTML = `
-        <h1 style="font-family: Comic Sans MS, cursive;"> Game Alpha</h1>
+          <div id="logoContainer">
+         <img src="https://github.com/ShakeAbdulRub/GameAlpha/blob/main/gamealphalogo2.jpeg?raw=true"/>
+         Game Alpha
+         
+    </div>
+    
+        
          <div id="Type">
          <label for="checkboxCap">
                      <input type="checkbox" id="checkboxCap" value="1"  checked />
