@@ -6,7 +6,7 @@
    <title>
 	   
 	  Game Alpha</title>
-	 <link rel="icon" href="https://github.com/ShakeAbdulRub/GameAlpha/blob/main/gamealphalogo4.png?raw=true"
+	 <link rel="icon" href="https://github.com/ShakeAbdulRub/GameAlpha/blob/main/gamealphalogo5.png?raw=true"
           type="image/x-icon">
    <style>
     
@@ -14,9 +14,62 @@
          font-family: 'Arial', sans-serif;
          margin: 0;
          padding: 0;
-         background-color: #f5f5f5;
+         background-color: white;
+
       }
       
+     <!-- HTML !-->
+<button class="button-64" role="button"><span class="text">Button 64</span></button>
+
+/* CSS */
+.button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
 
       /* Common styles for pages */
       .page {
@@ -46,6 +99,34 @@
          background-color: #3498db;
          color: #fff;
       }
+     
+         
+                  
+                  
+                  
+         .btn-grad {
+            background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5  51%, #00d2ff  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+         
+         
+         
 
       #Type {
          display: flex;
@@ -64,10 +145,12 @@
       .dropdown {
           
          text-align: center; 
+         align-items: center;
+         justify-content: center;
          padding: 10px;
          font-size: 1.2rem;
-         background-color: #2c3e50;
-         color: #fff;
+         background-color: pink;
+         color: black;
          cursor: pointer;
          border-radius: 10px;
          border: 2px solid #fff;
@@ -118,23 +201,24 @@
       label {
          padding: 10px;
          font-size: 1rem;
-         background-color: #2c3e50;
-         color: #fff;
+         background-color: pink;
+         color: black;
          border-radius: 8px;
          cursor: pointer;
          transition: background-color 0.3s ease;
       }
 
       label:hover {
-         background-color: #34495e;
+         background-color: pink;
       }
 
       button {
          margin-top: 20px;
          padding: 15px;
          font-size: 1.2rem;
-         background-color: #e74c3c;
-         color: #fff;
+         background-color: pink;
+         color:black ;
+         font-weight: bold;
          border: none;
          border-radius: 10px;
          cursor: pointer;
@@ -142,7 +226,7 @@
       }
 
       button:hover {
-         background-color: #c0392b;
+         background-color: pink;
       }
 
       /* Game Page Styles */
@@ -179,12 +263,12 @@
       }
 
       button {
-         background-color: #2c3e50;
+         background-color: pink;
         
       }
 
       button:hover {
-         background-color: #34495e;
+         background-color: #d103d1;
       }
 
       /* Responsive Styles */
@@ -299,7 +383,7 @@
          contentContainer.innerHTML = `
           
          <div id="logoContainer">
-         <img src="./gamealphalogo4.png"/>
+         <img src="https://github.com/ShakeAbdulRub/GameAlpha/blob/main/gamealphalogo5.png?raw=true"/>
          Game Alpha
          
     </div>
@@ -317,15 +401,14 @@
          </div>
             
               
-               <div class="dropdown" onclick="showOptions()">
-    Select Alphabets
+               <div class="dropdown" onclick="showOptions()"> Select Alphabets${"       "}<?xml version="1.0" encoding="UTF-8"?><svg width="25px" height="25px" viewBox="0 0 24 24" stroke-width="1.5" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M8.5 11L12 14.5L15.5 11" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>  
 </div>
 <div id="options">
     
     <div class="row" id="checkboxRow"></div>
 </div>
                
-               <button onclick="startGame()"> StartGame </button>
+               <button class="btn-grad" onclick="startGame()"> StartGame </button>
                <p><b>
                 <ol>
                 Note:
@@ -454,18 +537,11 @@
         <source src="object3.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+  
     
-    
-    
-    
-    <div id="buttonContainer" >
-    <button id="replayButton" onclick="replayAudio()">Replay Voice</button>
-</div>
-    
-    
-    
-    
-        </div> `;
+        </div>
+<br><br>
+<button class="btn-grad"  onclick="replayAudio()">Replay Voice</button> `;
        
          onGame();
       }
@@ -500,7 +576,7 @@ const audio = new SpeechSynthesisUtterance();
         function onGame() {
         
             startTime = new Date();
-           // gameInterval = setInterval(showObjects, 5000); // Change this interval as needed
+          
             setBigArray();
             setObjectNames();
             showObjects();
@@ -596,7 +672,8 @@ function showObjects() {
     for (const name of objectNames) {
         const button = document.createElement('button');
         button.textContent = name;
-        button.id = "objectbutton"
+        button.id = "objectbutton";
+        button.className="button-64";
         button.addEventListener('click', () => checkAnswer(name));
         objectsContainer.appendChild(button);
     }
@@ -694,8 +771,8 @@ function showObjects() {
          
          
          <p id="scored">Score: 0</p>
-         <button onclick="startGame()"> New Game </button>
-          <button onclick="homePage()"> Home </button>
+         <button class="btn-grad" onclick="startGame()"> New Game </button>
+          <button class="btn-grad" onclick="homePage()"> Home </button>
 	  <br>
        <img style="width:40px; height:40px;"  src="./developerImage.jpeg">
           <a href="https://www.linkedin.com/in/shake-abdul-rub" style="font-size: 20px;">Linked In</a>
