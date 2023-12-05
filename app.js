@@ -16,7 +16,6 @@ let wrongselect = 0;
 function homePage() {
   inputStr = "";
   inputType = "";
-  console.log("Entering homePage function");
   sp = "";
   playAudio(sp);
   var contentContainer = document.getElementById("contentContainer");
@@ -128,7 +127,7 @@ function getOptions() {
   for (var i = 0; i < selectedOptions.length; i++) {
     inputStr = inputStr + selectedOptions[i].value;
   }
-  console.log(inputStr);
+  
   for (var i = 0; i < selectedType.length; i++) {
     inputType = inputType + selectedType[i].value;
   }
@@ -181,7 +180,6 @@ function playAudio(text) {
     .find((voice) => {
       return voice.name === "Microsoft Ravi - English (India)";
     });
-  console.log(indianEnglishVoice);
 
   audio.voice = indianEnglishVoice;
   window.speechSynthesis.speak(audio);
@@ -202,7 +200,6 @@ function onGame() {
 
 function setBigArray() {
   bigArray = selectRandomWords(inputStr, Number(inputType));
-  console.log(bigArray);
 }
 function generateWords(letter, type, k) {
   const words = [];
@@ -259,7 +256,7 @@ function selectRandomWords(series, type) {
     selectedWords.push(
       ...generatedWords.slice(0, Math.ceil(80 / series.length))
     );
-    console.log(Math.ceil(80 / series.length));
+    
   }
 
   selectedWords.sort(() => Math.random() - 0.5);
@@ -280,7 +277,6 @@ function showObjects() {
 
   if (wrongselect === 3 || new Date() - startTime > 80000 || n > 79) {
     endGame();
-    console.log("Exit from the showobj");
     return;
   }
 
@@ -316,7 +312,7 @@ function checkAnswer(selectedObject) {
   ).textContent = `wrongselect: ${wrongselect}`;
 
   if (wrongselect == 3 || new Date() - startTime > 80000 || n > 79) {
-    console.log("hello");
+    
     endGame();
   } else {
     setObjectNames();
@@ -340,7 +336,7 @@ function updateTimer() {
     timerElement.textContent = `Time: ${formatTime(remaining)}`;
 
     if (remaining === 0) {
-      console.log("exit from update");
+     
       endGame();
     }
   }
@@ -349,7 +345,7 @@ function updateTimer() {
 }
 function getRandomNumber(n) {
   if (typeof n !== "number" || n <= 0) {
-    console.error("Invalid range");
+    
     return null;
   }
 
