@@ -1,0 +1,319 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+<!--
+  HTML
+  !--
+  > <button
+  class="button-64"
+  role="button"
+  > <span
+  class="text"
+  > Button
+  64</span
+  > </button
+  > .button-64 {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+h1 {
+  margin-bottom: 40px;
+  font-size: 3rem;
+  color: #333;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+
+#homePage {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #00d2ff 0%,
+    #3a7bd5 51%,
+    #00d2ff 100%
+  );
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+#Type {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+#Type label {
+  margin-left: 0.5rem;
+}
+
+.dropdown {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: pink;
+  color: black;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #fff;
+}
+
+#options {
+  margin-top: 10px;
+  display: none;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#imageContainer {
+  width: 200px;
+  height: 100px;
+
+  overflow: hidden;
+}
+#logoContainer {
+  margin: 0px auto;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Courier New", monospace;
+  overflow: hidden;
+  display: flex;
+  color: #2980b9;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#logoContainer img {
+  width: 70px;
+  height: 70px;
+
+  object-fit: contain;
+}
+
+#imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+label {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: pink;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+label:hover {
+  background-color: pink;
+}
+
+button {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: pink;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: pink;
+}
+
+#gamePage {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+#objects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#timer {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+#endGamePage {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+#scored {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: pink;
+}
+
+button:hover {
+  background-color: #d103d1;
+}
+
+@media (min-width: 601px) {
+  #objectbutton {
+    font-size: 20px;
+    margin: 10px;
+    padding: 15px 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+
+  #logoContainer {
+    width: 80%;
+  }
+  #objects-container {
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+  }
+  #buttonContainer {
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .dropdown {
+    width: 80%;
+  }
+  #logoContainer {
+    width: 100%;
+  }
+  .row {
+    flex-direction: row;
+  }
+
+  button {
+    width: 80%;
+  }
+  #objectbutton {
+    font-size: 20px;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+
+  #options {
+    padding: 10px;
+  }
+
+  .select-options {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 120px;
+    overflow-y: auto;
+  }
+
+  .select-option {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #2c3e50;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+  }
+
+  .select-option:hover {
+    background-color: #34495e;
+  }
+}
